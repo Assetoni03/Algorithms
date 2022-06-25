@@ -11,7 +11,7 @@ void binarySearch(int arr[], int element, int len)
         if (guess == element)
         {
             cout<<"Element found at "<<mid<<" th index";
-            break;
+            return;
         }
         else if (guess < element)
             low = mid + 1;
@@ -19,6 +19,7 @@ void binarySearch(int arr[], int element, int len)
             high = mid - 1;
     }
     cout<<"Not found";
+    return;
 }
 int main()
 {
