@@ -1,0 +1,25 @@
+def partition(a, start, end):
+    pivot = a[end]
+    pIndex = start
+    for i in range(start, end):
+        if a[i] <= pivot:
+            temp = a[i]
+            a[i] = a[pIndex]
+            a[pIndex] = temp
+            pIndex += 1
+    temp = a[pIndex]
+    a[pIndex] = a[end]
+    a[end] = temp
+    return pIndex
+
+def quicksort(a, start, end):
+    if start >= end:
+        return
+    pivot = partition(a, start, end)
+    quicksort(a, start, pivot - 1)
+    quicksort(a, pivot + 1, end)
+
+a = input().split()
+n = len(a)
+quicksort(a, 0, n - 1)
+print(*a)
